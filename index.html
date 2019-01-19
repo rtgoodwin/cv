@@ -1,13 +1,306 @@
----
-layout: layout
----
 
-{% include employment.html %}
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        
+      </head>
+      <body> <style type="text/css">@import 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css';
+/* look at https://www.w3schools.com/cssref/pr_import_rule.asp for
+media query specific imports */
+/* for custom colors with Semantic UI https://codepen.io/audreyr/pen/yYVPNQ 
+basically use ui.CUSTOMCOLORNAME.element */
+/* remember to include different :roots in each media query if needed */
+@font-face {
+  font-family: 'PierSans-Regular';
+  src: url("fonts/PierSans-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
 
-<!-- {% include education.html %} -->
+@media screen {
+  .footer {
+    grid-area: foot;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 10px;
+    bottom: 0; }
+  #main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 220px;
+    grid-template-rows: 40px 50px 4fr 25px;
+    grid-template-areas: "loc loc loc loc" "nm nm nm nm" "exp exp exp side" "foot foot foot foot"; }
+  .second-page-header {
+    display: none; } }
 
-{% include skills.html %}
+@media print {
+  @page {
+    size: letter portrait;
+    -relaxed-page-width: 8.5in;
+    -relaxed-page-height: 11in; }
+  .footer {
+    grid-area: foot;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 10px;
+    bottom: 0; }
+  .achievements {
+    page-break-inside: avoid; }
+  #main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 220px;
+    grid-template-rows: 40px 50px 19in 25px;
+    grid-template-areas: "loc loc loc loc" "nm nm nm nm" "exp exp exp side" "foot foot foot foot"; }
+  .summary {
+    display: none; }
+  .spacer {
+    height: 40px;
+    display: block; } }
 
-<!-- {% include initiatives.html %} -->
+:root {
+  --accent-color: rgb(0, 110, 28);
+  --accent-color-light: rgb(100, 100, 100);
+  --experience-color: #DCE0D9;
+  --sidebar-color: #D3D5D4;
+  --myname-color: #8E9B90;
+  --name-bg-color: #292F36;
+  --summary-color: rgba(0,0,0,.9);
+  --section-title-padding-bottom: 5px;
+  --section-title-padding-top: 5px; }
 
-{% include interests.html %}
+* {
+  box-sizing: border-box; }
+
+.ui-title {
+  margin: 0.6em 10% 0.8em !important; }
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px; }
+
+.address-header {
+  grid-area: loc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--accent-color);
+  margin-bottom: 10px;
+  color: white; }
+
+.second-page-header {
+  grid-area: hdr; }
+
+.emphasis {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px; }
+
+.myname {
+  grid-area: nm;
+  margin: 1em 0 1em 0; }
+
+.mainname {
+  font-size: 2em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around; }
+
+.summary {
+  grid-area: sum; }
+
+.summarytext {
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  display: block;
+  text-align: center;
+  font-style: italic; }
+
+.summary-block {
+  margin: .5em 0 1em 0; }
+
+.experience {
+  grid-area: exp;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: var(--accent-color);
+  height: 100%;
+  display: block; }
+
+.experience-sectiontitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  color: var(--accent-color);
+  padding-bottom: var(--section-title-padding-bottom);
+  padding-top: var(--section-title-padding-top); }
+
+.experience-sectiontitle::before {
+  content: "\f017";
+  font-weight: 400;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: "Font Awesome 5 Free"; }
+
+.contact-sectiontitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  color: var(--accent-color);
+  padding-bottom: var(--section-title-padding-bottom);
+  padding-top: var(--section-title-padding-top); }
+
+.contact-sectiontitle::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f007";
+  font-weight: 400;
+  margin-right: 5px; }
+
+.contact-block * li i {
+  color: var(--accent-color); }
+
+.skills-sectiontitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-bottom: var(--section-title-padding-bottom);
+  padding-top: var(--section-title-padding-top);
+  display: block;
+  color: var(--accent-color); }
+
+.skills-sectiontitle::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f080";
+  font-weight: 400;
+  margin-right: 5px; }
+
+.employer {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.9);
+  page-break-inside: avoid; }
+
+.blocks {
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  page-break-inside: avoid; }
+
+.achievements {
+  color: black; }
+
+.company {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: middle;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent-color); }
+
+.details {
+  margin-bottom: 5px;
+  padding-top: 5px; }
+
+.location, .dates {
+  color: rgba(0, 0, 0, 0.5); }
+
+.hyphen {
+  padding-left: 2px;
+  padding-right: 2px; }
+
+.productblock {
+  margin-top: .7em;
+  display: flex;
+  justify-content: space-between; }
+
+.productname {
+  font-weight: bold;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.9); }
+
+.roletitle {
+  color: var(--accent-color);
+  padding-top: 5px;
+  display: block; }
+
+.sidebar {
+  grid-area: side;
+  margin-right: 1em; }
+
+.contact-block {
+  background-color: white;
+  display: block;
+  margin-bottom: 1em;
+  line-height: 2em;
+  padding: 5px; }
+
+.contact-block ul {
+  list-style: none;
+  list-style-position: outside;
+  text-indent: -1.5em; }
+
+.skillsubsectiontitle {
+  font-weight: bold;
+  color: white;
+  background-color: var(--accent-color-light);
+  display: block;
+  margin-bottom: 5px; }
+
+.skills-subsection {
+  text-align: center;
+  margin-bottom: 1em;
+  margin-right: 10px;
+  background-color: white; }
+
+.skillsitem {
+  display: flex;
+  justify-content: space-around; }
+</style><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"/><div id="main"><div class="address-header"><div class="address-block"><span class="emphasis">LOCATION</span><span class="address">Round Rock, TX </span></div><div class="address-block"><span class="emphasis">MOBILE</span><span>512-736-7897</span></div><div class="address-block"><span class="emphasis">EMAIL</span><span>richardg@richardgoodwin.com</span></div></div><div class="myname"><div class="mainname">RICHARD GOODWIN</div></div><div class="maintitle"><span class="maintitlemarker"> </span><span class="maintitlemarker"> </span></div><div class="experience"><span class="experience-sectiontitle">EXPERIENCE</span><div class="blocks"><div class="company"><span class="employer">Rackspace Managed Hosting</span><span class="location">Austin, TX</span><div class="dates"> <span>2012</span><span class="hyphen">-</span><span>Present</span></div></div><div class="decorator"></div><div class="details"><span class="roletitle">SENIOR PRODUCT MANAGER</span><div class="roledescription"><div class="productsblock"><div class="productblock"><span class="productname">Mobile Applications &amp; Global Surfaces</span><div class="productdates"><span class="dates">2016</span><span class="hyphen">-</span><span class="dates">Present</span></div></div><div class="achievements"><ul>
+<li>Championed and revived the Rackspace Mobile applications from maintenance mode to first class customer surface on iOS &amp; Android.</li>
+<li>Drove acceptance of a leadership charter that expanded the development resources from part-time contractors to a fully staffed team.</li>
+<li>Partner with Rackspace Experience Design (RED) to provide strong, mobile first experiences. Our iOS and Android apps deliver a superior support experience, resulting in measureable customer satisfaction improvements.</li>
+<li>Develop and prioritize roadmaps, cross-functional integrations, and experience design for high-impact surface components, such as the Rackspace Design System, Global Navigation architecture, and Global Dashboard.</li>
+</ul>
+</div><div class="productblock"><span class="productname">Customer Identity Platform</span><div class="productdates"><span class="dates">2016</span><span class="hyphen">-</span><span class="dates">Present</span></div></div><div class="achievements"><ul>
+<li>Develop and drive roadmap and vision for one of Rackspace's most critical backend systems. The Customer Identity application processes hundreds of millions of requests/day, with 100% uptime and extremely low latency requirements, providing authorization and authentication for the majority of Rackspace services.</li>
+<li>Delivered self-serve SAML 2.0 Identity Federation, allowing large customers to rapidly adopt and scale their product usage and footprint, while aligning to corporate and best practice security guidelines.</li>
+<li>Managed an intensive, time constrained, zero-downtime migration of the global Identity application into a PCI-compliant environment.</li>
+</ul>
+</div><div class="productblock"><span class="productname">Developer Experience</span><div class="productdates"><span class="dates">2015</span><span class="hyphen">-</span><span class="dates">2016</span></div></div><div class="achievements"> <ul>
+<li>Design promotional programs and evangelism strategies for existing and potential customers of Rackspace Cloud.</li>
+<li>Manage prioritization of SDK and tool development for development and interaction with Rackspace Cloud API-based services.</li>
+</ul>
+</div><div class="productblock"><span class="productname">Rackspace Open Cloud</span><div class="productdates"><span class="dates">2012</span><span class="hyphen">-</span><span class="dates">2015</span></div></div><div class="achievements"><ul>
+<li>Group Product Management for the Rackspace Open Cloud, built on OpenStack: a multi-million dollar business that was the largest open public cloud at that time.</li>
+<li>Delivered roadmap and vision to serve customers at massive scale. Engaged with the OpenStack community to evangelize and drive features into multiple OpenStack projects.</li>
+<li>Managed prioritization of product and feature delivery across a portfolio of cloud services, including server and storage virtualization, networking, and application orchestration.</li>
+</ul>
+</div></div></div></div></div><div style="page-break-before:always;"></div><div class="spacer"> </div><div class="blocks"><div class="company"><span class="employer">Symantec Corporation</span><span class="location">Austin, TX</span><div class="dates"> <span>2005</span><span class="hyphen">-</span><span>2012</span></div></div><div class="decorator"></div><div class="details"><span class="roletitle">SENIOR PRODUCT MANAGER</span><div class="roledescription"><div class="productsblock"><div class="productblock"><span class="productname">Symantec.cloud</span><div class="productdates"><span class="dates">2008</span><span class="hyphen">-</span><span class="dates">2012</span></div></div><div class="achievements"><ul>
+<li>Responsible for researching, creating and delivering materials and strategies to support internal and external initiatives and launches for the Symantec.cloud division of Symantec (built from the acquisition of MessageLabs and SPN).</li>
+<li>Focal areas included endpoint, web, and email security.</li>
+</ul>
+</div><div class="productblock"><span class="productname">Symantec Protection Network</span><div class="productdates"><span class="dates">2006</span><span class="hyphen">-</span><span class="dates">2008</span></div></div><div class="achievements"><ul>
+<li>Led an internal special projects group to drive and deliver the first hosted services platform from Symantec, the Symantec Protection Network (SPN).</li>
+<li>Developed requirements, partnered with architecture, and designed processes to build a scalable, multi-service platform launched with first with Online Backup.</li>
+</ul>
+</div><div class="roletitle">SENIOR TECHNICAL PRODUCT MANAGER</div><div class="productblock"><span class="productname">Vendor &amp; Product Integration</span><div class="productdates"><span class="dates">2005</span><span class="hyphen">-</span><span class="dates">2006</span></div></div><div class="achievements"><ul>
+<li>Drive delivery of new features and technology support for Backup Exec and NetBackup, the industry leading tape and virtual storage backup applications.</li>
+<li>Managed relationships with critical OEMs like Dell, HP, and Gateway, to ensure strategy alignment, joint roadmap, and achieve revenue goals.</li>
+</ul>
+</div></div></div></div></div><div class="blocks"><div class="company"><span class="employer">Dell, Inc</span><span class="location">Austin, TX</span><div class="dates"> <span>2000</span><span class="hyphen">-</span><span>2005</span></div></div><div class="decorator"></div><div class="details"><span class="roletitle">SOLUTIONS ENGINEERING</span><div class="roledescription"><div class="productsblock"><div class="productblock"><span class="productname">ISV Solutions</span><div class="productdates"><span class="dates">2000</span><span class="hyphen">-</span><span class="dates">2005</span></div></div><div class="achievements"><ul>
+<li>Managed the strategy, integration, and delivery of the Dell PowerSuites family of third party backup and archival products.</li>
+<li>Partnered with third party vendors, including VERITAS (now Symantec), Computer Associates, CommVault, and Yosemite (now Barracuda) to customize and integrate their solutions for tight integration with the Dell PowerVault line of enterprise tape hardware.</li>
+<li>Worked across a variety of disciplines, from Product Marketing &amp; Management, to low-level technical initiatives like Fibre Channel storage analysis and validation.</li>
+</ul>
+</div></div></div></div></div></div><div class="sidebar"><span class="contact-sectiontitle">SUMMARY</span><div class="summary-block">Customer focused creator driven to deliver world-class experiences, products, and services that continually enhance the way we interact with technology and our peers: professionally, personally, and on the move. 
+</div><div class="skillsection"> <span class="skills-sectiontitle">SKILLS</span><div class="skills">     <div class="skills-subsection"><div class="skills-subsection-left"></div><div class="skillsubsectiontitle">PRODUCT MANAGEMENT / MARKETING</div><div class="skillsitemlist"><div class="skillsboxed"><div class="skillsitem"><span>Pragmatic</span></div><div class="skillsitem"><span>Agile</span></div><div class="skillsitem"><span>Waterfall</span></div><div class="skillsitem"><span>Hybrid</span></div></div></div><div class="skills-subsection-right"></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">TECHNICAL / ARCHITECTURE</div><div class="skillsboxed"><div class="skillsitem"><span>SaaS</span></div><div class="skillsitem"><span>Mobile Applications</span></div><div class="skillsitem"><span>Identity/Access Management</span></div><div class="skillsitem"><span>High Availability Systems</span></div><div class="skillsitem"><span>REST APIs</span></div><div class="skillsitem"><span>Security</span></div><div class="skillsitem"><span>Systems Virtualization</span></div><div class="skillsitem"><span>Storage Virtualization</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">USER EXPERIENCE</div><div class="skillsboxed"><div class="skillsitem"><span>Prototyping</span></div><div class="skillsitem"><span>Wireframe/Mockup</span></div><div class="skillsitem"><span>Customer Research</span></div><div class="skillsitem"><span>Interaction Design</span></div><div class="skillsitem"><span>Design Thinking</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">PROGRAMMING</div><div class="skillsboxed"><div class="skillsitem"><span>Objective-C/Swift</span></div><div class="skillsitem"><span>Python</span></div><div class="skillsitem"><span>Javascript</span></div><div class="skillsitem"><span>Java</span></div><div class="skillsitem"><span>Alexa/Google Assistant</span></div></div></div></div></div></div></div> </body>
+    </html>
