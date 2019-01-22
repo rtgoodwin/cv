@@ -31,9 +31,30 @@ basically use ui.CUSTOMCOLORNAME.element */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 220px;
     grid-template-rows: 40px 50px 4fr 25px;
-    grid-template-areas: "loc loc loc loc" "nm nm nm nm" "exp exp exp side" "foot foot foot foot"; }
+    grid-template-areas: "loc loc loc loc" "nm nm nm nm" "exp exp exp side" "foot foot foot foot";
+    font-size: 10pt; }
   .second-page-header {
     display: none; } }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  #main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 50px 80px 3fr 1fr 25px;
+    grid-template-areas: "loc" "nm" "summary" "exp" "side" "foot";
+    font-size: 14pt; }
+  .address-header {
+    grid-area: loc;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-flex-flow: row wrap;
+    background-color: var(--accent-color);
+    color: white;
+    flex: 1 0 100%; }
+  .summary-block {
+    grid-area: summary; } }
 
 @media print {
   @page {
@@ -89,11 +110,11 @@ body {
 .address-header {
   grid-area: loc;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  -webkit-flex-flow: row wrap;
   background-color: var(--accent-color);
-  margin-bottom: 10px;
   color: white; }
 
 .second-page-header {
@@ -264,7 +285,7 @@ body {
 .skillsitem {
   display: flex;
   justify-content: space-around; }
-</style><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"/><div id="main"><div class="address-header"><div class="address-block"><span class="emphasis">LOCATION</span><span class="address">Round Rock, TX </span></div><div class="address-block"><span class="emphasis">MOBILE</span><span>512-736-7897</span></div><div class="address-block"><span class="emphasis">EMAIL</span><span>richardg@richardgoodwin.com</span></div></div><div class="myname"><div class="mainname">RICHARD GOODWIN</div></div><div class="maintitle"><span class="maintitlemarker"> </span><span class="maintitlemarker"> </span></div><div class="experience"><span class="experience-sectiontitle">EXPERIENCE</span><div class="blocks"><div class="company"><span class="employer">Rackspace Managed Hosting</span><span class="location">Austin, TX</span><div class="dates"> <span>2012</span><span class="hyphen">-</span><span>Present</span></div></div><div class="decorator"></div><div class="details"><span class="roletitle">SENIOR PRODUCT MANAGER</span><div class="roledescription"><div class="productsblock"><div class="productblock"><span class="productname">Mobile Applications &amp; Global Surfaces</span><div class="productdates"><span class="dates">2016</span><span class="hyphen">-</span><span class="dates">Present</span></div></div><div class="achievements"><ul>
+</style><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><div id="main"><div class="address-header"><div class="address-block"><span class="emphasis">LOCATION</span><span class="address">Round Rock, TX </span></div><div class="address-block"><span class="emphasis">MOBILE</span><span>512-736-7897</span></div><div class="address-block"><span class="emphasis">EMAIL</span><span>richardg@richardgoodwin.com</span></div></div><div class="myname"><div class="mainname">RICHARD GOODWIN</div></div><div class="maintitle"><span class="maintitlemarker"> </span><span class="maintitlemarker"> </span></div><div class="experience"><span class="experience-sectiontitle">EXPERIENCE</span><div class="blocks"><div class="company"><span class="employer">Rackspace Managed Hosting</span><span class="location">Austin, TX</span><div class="dates"> <span>2012</span><span class="hyphen">-</span><span>Present</span></div></div><div class="decorator"></div><div class="details"><span class="roletitle">SENIOR PRODUCT MANAGER</span><div class="roledescription"><div class="productsblock"><div class="productblock"><span class="productname">Mobile Applications &amp; Global Surfaces</span><div class="productdates"><span class="dates">2016</span><span class="hyphen">-</span><span class="dates">Present</span></div></div><div class="achievements"><ul>
 <li>Championed and revived the Rackspace Mobile applications from maintenance mode to first class customer surface on iOS &amp; Android.</li>
 <li>Drove acceptance of a leadership charter that expanded the development resources from part-time contractors to a fully staffed team.</li>
 <li>Partner with Rackspace Experience Design (RED) to provide strong, mobile first experiences. Our iOS and Android apps deliver a superior support experience, resulting in measureable customer satisfaction improvements.</li>
@@ -302,5 +323,5 @@ body {
 <li>Worked across a variety of disciplines, from Product Marketing &amp; Management, to low-level technical initiatives like Fibre Channel storage analysis and validation.</li>
 </ul>
 </div></div></div></div></div></div><div class="sidebar"><span class="contact-sectiontitle">SUMMARY</span><div class="summary-block">Customer focused creator driven to deliver world-class experiences, products, and services that continually enhance the way we interact with technology and our peers: professionally, personally, and on the move. 
-</div><div class="skillsection"> <span class="skills-sectiontitle">SKILLS</span><div class="skills">     <div class="skills-subsection"><div class="skills-subsection-left"></div><div class="skillsubsectiontitle">PRODUCT MANAGEMENT / MARKETING</div><div class="skillsitemlist"><div class="skillsboxed"><div class="skillsitem"><span>Pragmatic</span></div><div class="skillsitem"><span>Agile</span></div><div class="skillsitem"><span>Waterfall</span></div><div class="skillsitem"><span>Hybrid</span></div></div></div><div class="skills-subsection-right"></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">TECHNICAL / ARCHITECTURE</div><div class="skillsboxed"><div class="skillsitem"><span>SaaS</span></div><div class="skillsitem"><span>Mobile Applications</span></div><div class="skillsitem"><span>Identity/Access Management</span></div><div class="skillsitem"><span>High Availability Systems</span></div><div class="skillsitem"><span>REST APIs</span></div><div class="skillsitem"><span>Security</span></div><div class="skillsitem"><span>Systems Virtualization</span></div><div class="skillsitem"><span>Storage Virtualization</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">USER EXPERIENCE</div><div class="skillsboxed"><div class="skillsitem"><span>Prototyping</span></div><div class="skillsitem"><span>Wireframe/Mockup</span></div><div class="skillsitem"><span>Customer Research</span></div><div class="skillsitem"><span>Interaction Design</span></div><div class="skillsitem"><span>Design Thinking</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">PROGRAMMING</div><div class="skillsboxed"><div class="skillsitem"><span>Objective-C/Swift</span></div><div class="skillsitem"><span>Python</span></div><div class="skillsitem"><span>Javascript</span></div><div class="skillsitem"><span>Java</span></div><div class="skillsitem"><span>Alexa/Google Assistant</span></div></div></div></div></div></div></div> </body>
+</div><div class="skillsection"> <span class="skills-sectiontitle">SKILLS</span><div class="skills">     <div class="skills-subsection"><div class="skills-subsection-left"></div><div class="skillsubsectiontitle">PRODUCT MANAGEMENT / MARKETING</div><div class="skillsitemlist"><div class="skillsboxed"><div class="skillsitem"><span>Pragmatic</span></div><div class="skillsitem"><span>Agile</span></div><div class="skillsitem"><span>Waterfall</span></div><div class="skillsitem"><span>Hybrid</span></div></div></div><div class="skills-subsection-right"></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">TECHNICAL / ARCHITECTURE</div><div class="skillsboxed"><div class="skillsitem"><span>SaaS</span></div><div class="skillsitem"><span>Mobile Applications</span></div><div class="skillsitem"><span>Identity/Access Management</span></div><div class="skillsitem"><span>High Availability Systems</span></div><div class="skillsitem"><span>REST APIs</span></div><div class="skillsitem"><span>Security</span></div><div class="skillsitem"><span>Systems Virtualization</span></div><div class="skillsitem"><span>Storage Virtualization</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">USER EXPERIENCE</div><div class="skillsboxed"><div class="skillsitem"><span>Prototyping</span></div><div class="skillsitem"><span>Wireframe/Mockup</span></div><div class="skillsitem"><span>Customer Research</span></div><div class="skillsitem"><span>Interaction Design</span></div><div class="skillsitem"><span>Design Thinking</span></div><div class="skillsitem"><span>Analytics</span></div></div></div><div class="skills-subsection"><div class="skillsubsectiontitle">PROGRAMMING</div><div class="skillsboxed"><div class="skillsitem"><span>Objective-C/Swift</span></div><div class="skillsitem"><span>Python</span></div><div class="skillsitem"><span>Javascript</span></div><div class="skillsitem"><span>Java</span></div><div class="skillsitem"><span>Alexa/Google Assistant</span></div></div></div></div></div></div></div> </body>
     </html>
